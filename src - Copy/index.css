@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* FLOATING IMAGE */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* TRON GLOW */
+@keyframes tronFilter {
+  0%   { filter: drop-shadow(0 0 10px #31eefd); }
+  22%  { filter: drop-shadow(0 0 10px #1d85bb); }
+  42%  { filter: drop-shadow(0 0 10px #884173); }
+  62%  { filter: drop-shadow(0 0 10px #ff0071); }
+  82%  { filter: drop-shadow(0 0 10px #009997); }
+  100% { filter: drop-shadow(0 0 10px #31eefd); }
+}
+.tron-glow {
+  animation: tronFilter 10s linear infinite;
+}
+
+/* MOUSE GLOW */
+.mouse-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(34,211,238,0.35), transparent 60%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+.service-glow {
+  position: relative;
+}
+.service-glow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(120deg, #3b82f6, #22d3ee, #3b82f6);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.service-glow:hover::before {
+  opacity: 0.6;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* =========================
+   SMALL WHITE ARROWS (FIXED)
+========================= */
+.testimonial-swiper .swiper-button-next,
+.testimonial-swiper .swiper-button-prev {
+  width: 32px;          /* 👈 smaller size */
+  height: 32px;
+  background: #ffffff; /* white circle */
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* FORCE arrow icon color (important) */
+.testimonial-swiper .swiper-button-next::after,
+.testimonial-swiper .swiper-button-prev::after {
+  font-size: 12px;          /* 👈 smaller arrow */
+  color: #000 !important; /* 👈 FORCE blue (fix black issue) */
+  font-weight: bold;
+}
+
+/* Hover */
+.testimonial-swiper .swiper-button-next:hover,
+.testimonial-swiper .swiper-button-prev:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Position */
+.testimonial-swiper .swiper-button-prev {
+  left: -18px;
+}
+.testimonial-swiper .swiper-button-next {
+  right: -18px;
+}
+
+
+
